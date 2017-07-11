@@ -1,0 +1,23 @@
+{
+  "name": "MarysBikeShop",
+  "description": "Firebase functions for Mary's Bike Shop",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "engines": {
+    "node": "~4.2"
+  },
+  "scripts": {
+    "lint": "semistandard --fix \"**/*.js\"",
+    "start": "firebase deploy --only functions",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "firebase-admin": "^5.0.0",
+    "firebase-functions": "^0.5.4"
+  },
+  "devDependencies": {
+    "semistandard": "^9.1.0"
+  }
+}
