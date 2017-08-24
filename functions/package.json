@@ -14,8 +14,9 @@
     "deploy": "firebase deploy --only functions"
   },
   "dependencies": {
-    "firebase-admin": "^5.0.0",
-    "firebase-functions": "^0.5.4"
+    "firebase-functions": "^0.6.2",
+    "firebase-admin": "^5.2.1",
+    "googleapis": "^20.1.0"
   },
   "devDependencies": {
     "semistandard": "^9.1.0"

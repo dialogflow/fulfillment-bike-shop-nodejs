@@ -1,5 +1,5 @@
-/*
- * Copyright 2017 The Android Open Source Project.
+/**
+ * Copyright 2017 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,46 +16,52 @@
 
 'use strict';
 
+const functions = require('firebase-functions');
 const google = require('googleapis');
-const clientId = 'CLIENTID';
-const clientSecret = 'CLIENTSECRET';
-const refreshToken = 'REFRESHTOKEN';
-const timeZoneOffset = '-04:00'
+const fs = require('fs');
 
-exports.marysBikeShop = (req, res) => {
+// Get user's calendar authorization information
+const clientSecrets = require('./client_secret.json');
+const clientId = clientSecrets.installed.client_id;
+const clientSecret = clientSecrets.installed.client_secret;
+const refreshToken = require('./google-calendar-auth.json').refresh_token;
+
+// Set the time zone
+const timeZone = 'America/Los_Angeles';
+const timeZoneOffset = '-07:00';
+
+exports.marysBikeShop = functions.https.onRequest((req, res) => {
+  // Set header for response
   res.setHeader('Content-Type', 'application/json');
-
-  // Get the city and date from the request
-  let date = req.body.result.parameters['date']; // city is a required param
-  let timeStart = req.body.result.parameters['time']; // city is a required param
-  let appointmentType = req.body.result.parameters['appointment-type']; // city is a required param
 
   // Setup Google Calendar Auth
   let OAuth2 = google.auth.OAuth2;
   let auth = new OAuth2(clientId, clientSecret);
   auth.setCredentials({refresh_token: refreshToken});
   auth.refreshAccessToken(function(err, tokens) {
-  	if (err) { console.log("Auth Error: " + err); }
+    if (err) { console.log("Auth Error: Credentials not set up: " + err); }
   });
-  
+
+  // Get the city and date from the request
+  let date = req.body.result.parameters['date']; // city is a required param
+  let timeStart = req.body.result.parameters['time']; // city is a required param
+  let appointmentType = req.body.result.parameters['appointment-type']; // city is a required param
+
   // Calculate appointment start and end datetimes (end = +1hr from start)
-  if (parseInt(timeStart.slice(0,2)) + 1 > 9) {
-  	var timeEnd = (parseInt(timeStart.slice(0,2))+1).toString() + timeStart.slice(2,8);
-  } else {
-  	var timeEnd = "0" + (parseInt(timeStart.slice(0,2))+1).toString() + timeStart.slice(2,8);
-  }
-  let dateTimeStart = date + "T" + timeStart + timeZoneOffset;
-  let dateTimeEnd = date + "T" + timeEnd + timeZoneOffset;
+  dateTimeStart = Date.parse(date + 'T' + timeStart + timeZone);
+  dateTimeEnd = new Date(dateTimeStart)
+  dateTimeEnd.setHours(datetimeStart.getHours() + 1 );
+
   console.log("Appointment Start: " + dateTimeStart);
   console.log("Appointment End: " + dateTimeEnd);
   
-  // Check calendar, if event reject, if no event, create event
+  // Check calendar, if event -> reject, if no event -> create event
   let calendar = google.calendar('v3');
   calendar.events.list({
   	auth: auth,
   	calendarId: 'primary',
-  	timeMin: dateTimeStart,
-  	timeMax: dateTimeEnd
+  	timeMin: dateTimeStart.toISOString(),
+  	timeMax: dateTimeEnd.toISOString()
   	}, function(err, response) {
   	if (err) {
   	  console.log('Error retriving calendar information: ' + err);
@@ -80,13 +86,13 @@ exports.marysBikeShop = (req, res) => {
 	    	res.send(JSON.stringify({ 'speech': errorResponse, 'displayText': errorResponse }));
   		}
   		console.log('Event created: %s', event.htmlLink);
-  		const successResponse = `Great! I've setup your appointment for ${date} at ${timeStart}.  See you then`;
+  		const successResponse = `Great! I've setup your appointment for ${dateTimeStart.toLocaleString('en-US')}.  See you then`;
     	res.send(JSON.stringify({ 'speech': successResponse, 'displayText': successResponse }));
   	  });
   	} else {
   	  console.log('Event already present in requested period');
-	    const rejectResponse = `I'm sorry, there are no slots available for ${date} at ${timeStart}, would you like to check another time?`;
+	    const rejectResponse = `I'm sorry, there are no slots available for ${dateTimeStart.toLocaleString('en-US')}, would you like to check another time?`;
 	    res.send(JSON.stringify({ 'speech': rejectResponse, 'displayText': rejectResponse }));
   	}
   });
-};
+});
