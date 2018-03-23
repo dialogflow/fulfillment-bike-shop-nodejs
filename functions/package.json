@@ -1,6 +1,6 @@
 {
-  "name": "MarysBikeShop",
-  "description": "Firebase functions for Mary's Bike Shop",
+  "name": "dialogflowFirebaseFulfillment",
+  "description": "Dialogflow fulfillment for the bike shop sample",
   "version": "0.0.1",
   "private": true,
   "license": "Apache Version 2.0",
@@ -16,9 +16,7 @@
   "dependencies": {
     "firebase-functions": "^0.6.2",
     "firebase-admin": "^5.2.1",
-    "googleapis": "^20.1.0"
-  },
-  "devDependencies": {
-    "semistandard": "^9.1.0"
+    "googleapis": "27.0.0",
+    "dialogflow-fulfillment": "0.3.0-beta.1"
   }
 }
