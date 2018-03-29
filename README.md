@@ -53,6 +53,9 @@ Choose from one of the to two options below, only one (inline editor *or* Fireba
 ## Running the sample
 1. In [Dialogflow's console](https://console.dialogflow.com), in the Dialogflow simulator on the right, query your Dialogflow agent with `My bike is broken` and answer the questions your Dialogflow agent asks.  After getting the requuired information a appointment will be added to the "Bike Shop Calendar" calendar you setup earlier.
 
+## How to make contributions?
+Please read and follow the steps in the CONTRIBUTING.md.
+
 ## License
 See [LICENSE](LICENSE).
 
