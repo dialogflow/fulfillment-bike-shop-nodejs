@@ -42,7 +42,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   function hours (agent) {
     if (currentlyOpen()) {
-      agent.add(`We're open now! We close at 5:30pm today.`);
+      agent.add(`We're open now! We close at 5pm today.`);
     } else {
       agent.add(`We're currently closed, but we open every weekday at 9am!`);
     }
@@ -59,9 +59,9 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
     // Check the availibility of the time, and make an appointment if there is time on the calendar
     return createCalendarEvent(dateTimeStart, dateTimeEnd).then(() => {
-      agent.add(`Ok, let me see if we can fit you in.  ${appointmentTimeString} is fine!.  Do you need a repair or just a tune-up?`);
+      agent.add(`Ok, let me see if we can fit you in. ${appointmentTimeString} is fine!. Do you need a repair or just a tune-up?`);
     }).catch(() => {
-      agent.add(`I'm sorry, there are no slots available for ${appointmentTimeString}, would you like to check another day?`);
+      agent.add(`I'm sorry, there are no slots available for ${appointmentTimeString}.`);
     });
   }
 
@@ -72,15 +72,15 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 });
 
 function currentlyOpen () {
-  var currentDateTime = new Date(); // current time
-  var hours = currentDateTime.getHours();
-  var mins = currentDateTime.getMinutes();
-  var day = currentDateTime.getDay();
+  // Get current datetime with proper timezone
+  let date = new Date();
+  date.setHours(date.getHours() + parseInt(timeZoneOffset.split(':')[0]));
+  date.setMinutes(date.getMinutes() + parseInt(timeZoneOffset.split(':')[0][0] + timeZoneOffset.split(':')[1]));
 
-  return day >= 1 &&
-        day <= 5 &&
-        hours >= 9 &&
-        (hours < 17 || hours === 17 && mins <= 30);
+  return date.getDay(); >= 1 &&
+        date.getDay(); <= 5 &&
+        date.getHours(); >= 9 &&
+        date.getHours(); <= 17;
 }
 
 function createCalendarEvent (dateTimeStart, dateTimeEnd) {
@@ -94,17 +94,18 @@ function createCalendarEvent (dateTimeStart, dateTimeEnd) {
       // Check if there is a event already on the Bike Shop Calendar
       if (err || calendarResponse.data.items.length > 0) {
         reject(err || new Error('Requested time conflicts with another appointment'));
+      } else {
+        // Create event for the requested time period
+        calendar.events.insert({ auth: serviceAccountAuth,
+          calendarId: calendarId,
+          resource: {summary: 'Bike Appointment',
+            start: {dateTime: dateTimeStart},
+            end: {dateTime: dateTimeEnd}}
+        }, (err, event) => {
+          err ? reject(err) : resolve(event);
+        }
+        );
       }
-      // Create event for the requested time period
-      calendar.events.insert({ auth: serviceAccountAuth,
-        calendarId: calendarId,
-        resource: {summary: 'Bike Appointment',
-          start: {dateTime: dateTimeStart},
-          end: {dateTime: dateTimeEnd}}
-      }, (err, event) => {
-        err ? reject(err) : resolve(event);
-      }
-      );
     });
   });
 }

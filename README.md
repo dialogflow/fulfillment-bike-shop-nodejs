@@ -1,10 +1,10 @@
 # Dialogflow Bike Shop Sample
 
 ## Setup Instructions
-### Dialogflow Setup
-1. [Sign up for or sign into Dialogflow](https://console.dialogflow.com/api-client/#/login)
-1. [Create a Dialogflow agent](https://dialogflow.com/docs/getting-started/building-your-first-agent#create_an_agent)
-1. [Restore the zip file `BikeShopAgent.zip`](https://dialogflow.com/docs/agents#export_and_import)
+### Dialogflow and Fulfillment Setup
+Click on the **Add to Dialogflow** button below and follow the prompts to create a new agent:
+
+[![Bike Shop](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Bike Shop")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https://storage.googleapis.com/dialogflow-oneclick/bike-shop-agent.zip&agentName=BikeShopSample)
 
 ### Google Calendar Setup
 #### Service Account Setup
@@ -21,10 +21,8 @@
 1. Paste the email copied in the first step of this section into the **Add people** field in the **Share with specific people** section and then select **Make changes to events** in the permissions dropdown and click **Send**.
 1. Scroll down and copy the **Calendar ID** in the **Integrate Calendar** section.
 
-
-### Fulfillment Setup
 #### Add service account and Calendar ID to `index.js`
-1. Open the `functions/index.js` file in this repo
+1. Open the `index.js` file in [Dialogflow's fulfillment page](https://console.dialogflow.com/api-client/#/agent//fulfillment)
 1. Paste the **Calendar ID** copied in a "Bike Shop Calendar Setup" section into the `const calendarId = '<INSERT CALENDAR ID HERE>'` and replace `<INSERT CALENDAR ID HERE>` on line 25 of `index.js`. (the line should look similar to `const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com'`)
 1. Next copy the contents of the JSON file downloaded in the "Service Account Setup" section and paste it into `const serviceAccount = {}` on the next line.  Paste the raw JSON, without quotes.  The JSON file will be multiple lines, the first few coouple lines should look something like this:
 
@@ -32,23 +30,7 @@
       "type": "service_account",
     ...
 
-1. Save the `index.js` file
-
-Choose from one of the to two options below, only one (inline editor *or* Firebase CLI) is required:
-#### Fulfillment Setup Option #1: Dialogflow Inline Editor
-1. [Enable the Cloud Function for Firebase inline editor](https://dialogflow.com/docs/fulfillment#cloud_functions_for_firebase)
-1. Copy this code in `functions/index.js` the `index.js` file in the Dialogflow Cloud Function for Firebase inline editor.
-1. Copy this code in `functions/package.json` the `package.json` file in the Dialogflow Cloud Function for Firebase inline editor.
-1. Click `Deploy`
-
-#### Fulfillment Setup Option #2: Firebase CLI
-1. `cd` to the `functions` directory
-1. Run `npm install`
-1. Install the Firebase CLI by running `npm install -g firebase-tools`
-1. Login to your Google account with `firebase login`
-1. Add your project to the sample with `firebase use [project ID]` [find your project ID here](https://dialogflow.com/docs/agents#settings)
-1. Run `firebase deploy --only functions:dialogflowFirebaseFulfillment`
-1. Paste the URL into your Dialogflow agent's fulfillment and click `Save`
+1. Click **Deploy** at at the bottom of the page.
 
 ## Running the sample
 1. In [Dialogflow's console](https://console.dialogflow.com), in the Dialogflow simulator on the right, query your Dialogflow agent with `My bike is broken` and answer the questions your Dialogflow agent asks.  After getting the requuired information a appointment will be added to the "Bike Shop Calendar" calendar you setup earlier.
