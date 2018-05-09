@@ -77,10 +77,10 @@ function currentlyOpen () {
   date.setHours(date.getHours() + parseInt(timeZoneOffset.split(':')[0]));
   date.setMinutes(date.getMinutes() + parseInt(timeZoneOffset.split(':')[0][0] + timeZoneOffset.split(':')[1]));
 
-  return date.getDay(); >= 1 &&
-        date.getDay(); <= 5 &&
-        date.getHours(); >= 9 &&
-        date.getHours(); <= 17;
+  return date.getDay() >= 1 &&
+        date.getDay() <= 5 &&
+        date.getHours() >= 9 &&
+        date.getHours() <= 17;
 }
 
 function createCalendarEvent (dateTimeStart, dateTimeEnd) {
