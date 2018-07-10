@@ -23,7 +23,7 @@ Click on the **Add to Dialogflow** button below and follow the prompts to create
 
 #### Add service account and Calendar ID to `index.js`
 1. Open the `index.js` file in [Dialogflow's fulfillment page](https://console.dialogflow.com/api-client/#/agent//fulfillment)
-1. Paste the **Calendar ID** copied in a "Bike Shop Calendar Setup" section into the `const calendarId = '<INSERT CALENDAR ID HERE>'` and replace `<INSERT CALENDAR ID HERE>` on line 25 of `index.js`. (the line should look similar to `const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com'`)
+1. Paste the **Calendar ID** copied in a "Bike Shop Calendar Setup" section into the `const calendarId = '<INSERT CALENDAR ID HERE>'` and replace `<INSERT CALENDAR ID HERE>` on line 24 of `index.js`. (the line should look similar to `const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com'`)
 1. Next copy the contents of the JSON file downloaded in the "Service Account Setup" section and paste it into `const serviceAccount = {}` on the next line.  Paste the raw JSON, without quotes.  The JSON file will be multiple lines, the first few coouple lines should look something like this:
 
     const serviceAccount = {
