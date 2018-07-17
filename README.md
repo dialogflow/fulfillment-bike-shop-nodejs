@@ -6,34 +6,45 @@ Click on the **Add to Dialogflow** button below and follow the prompts to create
 
 [![Bike Shop](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Bike Shop")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https://storage.googleapis.com/dialogflow-oneclick/bike-shop-agent.zip&agentName=BikeShopSample)
 
-### Google Calendar Setup
 #### Service Account Setup
-1. In [Dialogflow's console](https://console.dialogflow.com), click the settings button (⚙) to go to your agent's settings. In the project ID section click on the name of the project to open the Google Cloud console for the project.
-1. In the Cloud console click on the menu icon (☰), then **APIs & Services > Library**
-1. Search for and select the **Google Calendar API** and then click **Enable** to enable the API on your cloud project
-1. Next select **Credentials** on the left, then click **Create Credentials** and select **Service Account Key** from the dropdown menu.
-1. Select **New Service Account** from the dropdown and enter `bike-shop-calendar` for the name and click **Create**. In the popup, select **Create Without Role**.  A JSON file will be downloaded to your computer that you'll use in the "Bike Shop Calendar Setup" and "Fulfillment Setup" sections below.
+1. In [Dialogflow's console](https://console.dialogflow.com), go to settings ⚙ and under the general tab, you'll see the project ID section with a Google Cloud link to open the Google Cloud console. Open **Google Cloud**.
+2. In the Cloud console, go to the menu icon **☰ > APIs & Services > Library**
+3. Select **Google Calendar API** and then **Enable** to enable the API on your cloud project.
+4. Under the menu icon **☰ > APIs & Services > Credentials > Create Credentials > Service Account Key**.
+5. Under **Create service account key**, select **New Service Account** from the dropdown and enter `bike-shop-calendar` for the name and click **Create**. In the popup, select **Create Without Role**.  
+  + JSON file will be downloaded to your computer that you will need in the setup sections below.
 
 #### Bike Shop Calendar Setup
-1. Open the JSON file that was downloaded in the previous section ("Service Account Setup"), and copy the email address indicated by the `client_email` field (it should look like `bike-shop-calendar@${PROJECTID}.iam.gserviceaccount.com`)
-1. [Open Google Calendar](https://calendar.google.com) and on the left click the **+** next to **Add a friends calendar** and select **New Calendar**
-1. Enter `Bike Shop` for the name of the calendar and then click **Create Calendar**. Next, click on the bike shop calendar that will appear on the left column.
-1. Paste the email copied in the first step of this section into the **Add people** field in the **Share with specific people** section and then select **Make changes to events** in the permissions dropdown and click **Send**.
-1. While still in Settings, scroll down and copy the **Calendar ID** in the **Integrate Calendar** section.
+1. Open the JSON file that was downloaded in the previous section and copy the email address indicated by the `client_email` field
+```js
+// Ex:
+bike-shop-calendar@${PROJECTID}.iam.gserviceaccount.com
+```
+2. [Open Google Calendar](https://calendar.google.com). On the left, next to **Add a friend's calendar** click the **+** and select **New Calendar**
+3. Enter `Bike Shop` for the name of the calendar and select **Create Calendar**. Next, go to the `Bike Shop` calendar that will appear on the left column.
+4. Paste the email copied from the first step into the **Add people** field of the **Share with specific people** section and then select **Make changes to events** in the permissions dropdown and select **Send**.
+5. While still in Settings, scroll down and copy the **Calendar ID** in the **Integrate Calendar** section.
 
-#### Add service account and Calendar ID to `index.js`
-1. Open the `index.js` file in [Dialogflow's fulfillment page](https://console.dialogflow.com/api-client/#/agent//fulfillment)
-1. Take the **Calendar ID** copied from the "Bike Shop Calendar Setup" section and replace `<INSERT CALENDAR ID HERE>` on line 24 of `index.js`. (the line should look similar to `const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com'`)
-1. Next copy the contents of the JSON file downloaded in the "Service Account Setup" section and paste it into `const serviceAccount = {}` on the next line.  Paste the raw JSON, without quotes.  The JSON file will be multiple lines, the first few couple lines should look something like this:
-
+#### Add Service Account and Calendar ID to Fulfillment
+1. Go to the `index.js` file in [Dialogflow's Fulfillment section](https://console.dialogflow.com/api-client/#/agent//fulfillment)
+2. Take the **Calendar ID** copied from the prior section and replace `<INSERT CALENDAR ID HERE>` on line 24 of `index.js`.
+```js
+// Ex:
+const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com';
+```
+3. Next copy the contents of the JSON file downloaded in the "Service Account Setup" section and paste it into the empty object on line 25 of `index.js` `const serviceAccount = {}`.
+```js
+//Ex:
     const serviceAccount = {
       "type": "service_account",
+      "project_id": "bikesample",
     ...
-
-1. Click **Deploy** at at the bottom of the page.
+  };
+```
+4. Click **Deploy** at at the bottom of the page.
 
 ## Running the sample
-1. In [Dialogflow's console](https://console.dialogflow.com), in the Dialogflow simulator on the right, query your Dialogflow agent with `My bike is broken` and answer the questions your Dialogflow agent asks.  After getting the required information a appointment will be added to the "Bike Shop Calendar" calendar you setup earlier.
+1. In [Dialogflow's console](https://console.dialogflow.com), in the Dialogflow simulator on the right, query your Dialogflow agent with `My bike is broken` and respond to the questions your Dialogflow agent asks.   After getting the required information, an appointment will be added to the "Bike Shop Calendar" calendar.
 
 ## How to make contributions?
 Please read and follow the steps in the CONTRIBUTING.md.
