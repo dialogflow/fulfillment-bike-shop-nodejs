@@ -2,9 +2,12 @@
 
 ## Setup Instructions
 ### Dialogflow and Fulfillment Setup
-Click on the **Add to Dialogflow** button below and follow the prompts to create a new agent:
 
-[![Bike Shop](https://storage.googleapis.com/dialogflow-oneclick/deploy.svg "Bike Shop")](https://console.dialogflow.com/api-client/oneclick?templateUrl=https://storage.googleapis.com/dialogflow-oneclick/bike-shop-agent.zip&agentName=BikeShopSample)
+To create this agent from our template:
+
+<a href="https://console.dialogflow.com/api-client/oneclick?templateUrl=https://oneclickgithub.appspot.com/dialogflow/fulfillment-bike-shop-nodejs&agentName=BikeShopSample" target="blank">
+  <img src="https://dialogflow.com/images/deploy.png">
+</a>
 
 #### Service Account Setup
 1. In [Dialogflow's console](https://console.dialogflow.com), go to settings ⚙ and under the general tab, you'll see the project ID section with a Google Cloud link to open the Google Cloud console. Open **Google Cloud**.
