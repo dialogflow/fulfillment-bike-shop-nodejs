@@ -1,0 +1,29 @@
+{
+  "id": "f4f09bf2-25db-438c-b72b-bcb8d5327548",
+  "name": "Fallback Intent",
+  "auto": false,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.unknown",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "I\u0027m sorry it\u0027s a little loud in my shop, can you say that again?"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1505928238,
+  "fallbackIntent": true,
+  "events": []
+}

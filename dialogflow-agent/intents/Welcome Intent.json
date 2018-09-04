@@ -1,0 +1,69 @@
+{
+  "id": "eff5b10a-77bf-4169-bc2e-c3d369c1d5eb",
+  "name": "Welcome Intent",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "input.welcome",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": "suggestion_chips",
+          "platform": "google",
+          "lang": "en",
+          "suggestions": [
+            {
+              "title": "Hours"
+            },
+            {
+              "title": "Location"
+            },
+            {
+              "title": "Appointment"
+            }
+          ]
+        },
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Hi, welcome to Hogarth\u0027s bike shop.  How can I help you?"
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "google": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1536089450,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "WELCOME"
+    },
+    {
+      "name": "GOOGLE_ASSISTANT_WELCOME"
+    },
+    {
+      "name": "SLACK_WELCOME"
+    },
+    {
+      "name": "FACEBOOK_WELCOME"
+    },
+    {
+      "name": "KIK_WELCOME"
+    },
+    {
+      "name": "TELEGRAM_WELCOME"
+    },
+    {
+      "name": "SKYPE_WELCOME"
+    }
+  ]
+}

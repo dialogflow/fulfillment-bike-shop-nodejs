@@ -1,0 +1,63 @@
+{
+  "id": "81dfa908-da80-43fc-8c70-e71299d1dcc2",
+  "name": "Make Appointment",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [
+        {
+          "name": "MakeAppointment-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "4a965d1f-1964-43a3-92e1-4640bbb18a5f",
+          "required": true,
+          "dataType": "@sys.date",
+          "name": "date",
+          "value": "$date",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What day do you want to come in?"
+            }
+          ],
+          "isList": false
+        },
+        {
+          "id": "d3acb08d-c645-4500-a1b2-38d80a7bfe6d",
+          "required": true,
+          "dataType": "@sys.time",
+          "name": "time",
+          "value": "$time",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What time works for you?"
+            }
+          ],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Ok, let me see if we can fit you in. Tomorrow at 3pm is fine! Do you need a repair or just a tune-up?"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1521826535,
+  "fallbackIntent": false,
+  "events": []
+}

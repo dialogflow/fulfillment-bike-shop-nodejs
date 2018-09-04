@@ -1,0 +1,48 @@
+{
+  "id": "d91c14d2-4261-430b-94a0-8363973de07e",
+  "parentId": "81dfa908-da80-43fc-8c70-e71299d1dcc2",
+  "rootParentId": "81dfa908-da80-43fc-8c70-e71299d1dcc2",
+  "name": "Make Appointment - custom",
+  "auto": true,
+  "contexts": [
+    "MakeAppointment-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "MakeAppointment.MakeAppointment-custom",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "ed9e9b7c-b545-4d93-b548-0646077949c5",
+          "required": true,
+          "dataType": "@AppointmentType",
+          "name": "AppointmentType",
+          "value": "$AppointmentType",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "We can service or repair your bike.  Which one would you like?"
+            }
+          ],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Okay, we’ll schedule a $AppointmentType for tomorrow, #MakeAppointment-followup.date, at #MakeAppointment-followup.time.  We’ll see you then."
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1521826903,
+  "fallbackIntent": false,
+  "events": []
+}

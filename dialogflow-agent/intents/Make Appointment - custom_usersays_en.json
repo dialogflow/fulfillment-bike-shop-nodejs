@@ -1,0 +1,46 @@
+[
+  {
+    "id": "79d6285b-56bd-48a7-ac07-196a1079d690",
+    "data": [
+      {
+        "text": "Can you ",
+        "userDefined": false
+      },
+      {
+        "text": "service",
+        "alias": "AppointmentType",
+        "meta": "@AppointmentType",
+        "userDefined": false
+      },
+      {
+        "text": " my bike?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521826903
+  },
+  {
+    "id": "0c3c2367-4a2b-409a-859b-9e696e828be8",
+    "data": [
+      {
+        "text": "I need a ",
+        "userDefined": false
+      },
+      {
+        "text": "repair",
+        "alias": "AppointmentType",
+        "meta": "@AppointmentType",
+        "userDefined": false
+      },
+      {
+        "text": ".",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521826903
+  }
+]

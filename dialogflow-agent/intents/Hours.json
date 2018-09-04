@@ -1,0 +1,28 @@
+{
+  "id": "f770a8d9-0182-4fa5-acb0-a4fdbb093f0c",
+  "name": "Hours",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "We are open every weekday from 9am to 5:30pm"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1521826229,
+  "fallbackIntent": false,
+  "events": []
+}

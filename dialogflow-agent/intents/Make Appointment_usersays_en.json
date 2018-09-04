@@ -1,0 +1,159 @@
+[
+  {
+    "id": "2e346a7f-65ad-48b0-bf6c-2ec127f7eae7",
+    "data": [
+      {
+        "text": "Can I setup an appointment to ",
+        "userDefined": false
+      },
+      {
+        "text": "service",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      },
+      {
+        "text": " my bike ",
+        "userDefined": false
+      },
+      {
+        "text": "tomorrow",
+        "alias": "date",
+        "meta": "@sys.date",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "at 2pm",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1521826436
+  },
+  {
+    "id": "fe5087b6-b217-42f2-81fb-c8a5fc18f6c4",
+    "data": [
+      {
+        "text": "Can you fix my ",
+        "userDefined": false
+      },
+      {
+        "text": "road bike",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1504687471
+  },
+  {
+    "id": "ef0a53c1-1432-404e-a210-0a8bcd04ac64",
+    "data": [
+      {
+        "text": "Can I schedule service for ",
+        "userDefined": false
+      },
+      {
+        "text": "4pm",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "tomorrow",
+        "alias": "date",
+        "meta": "@sys.date",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1496880186
+  },
+  {
+    "id": "3dac878d-4640-43f3-9cdb-f8b3fb9fa2a2",
+    "data": [
+      {
+        "text": "My bike is broken",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1496880186
+  },
+  {
+    "id": "a196f88d-dfc0-4809-be42-79c515a5f14f",
+    "data": [
+      {
+        "text": "I have a ",
+        "userDefined": false
+      },
+      {
+        "text": "mountain bike",
+        "meta": "@sys.ignore",
+        "userDefined": true
+      },
+      {
+        "text": " that needs servicing",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1504687471
+  },
+  {
+    "id": "d0741c5d-d025-4510-a3a8-bcf3d463d8d8",
+    "data": [
+      {
+        "text": "I\u0027d like to get my bike fixed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1496880186
+  },
+  {
+    "id": "ac7fa6ae-c45c-4bdd-8d0a-f8ed2d85fd04",
+    "data": [
+      {
+        "text": "I\u0027d like to schedule an appointment for ",
+        "userDefined": false
+      },
+      {
+        "text": "next Thursday",
+        "alias": "date",
+        "meta": "@sys.date",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 1496880186
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "value": "service",
+    "synonyms": [
+      "service",
+      "overhaul",
+      "maintenance",
+      "tune-up",
+      "tune up"
+    ]
+  },
+  {
+    "value": "fix",
+    "synonyms": [
+      "fix",
+      "repair",
+      "mend",
+      "broken",
+      "flat tire",
+      "fixed"
+    ]
+  }
+]
