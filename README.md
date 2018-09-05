@@ -52,10 +52,10 @@ const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com';
 1. Go to the **Knowledge** tab in the left menu > **Create Knowledge Base**.  
   + Name the knowledge base `Bike Shop` then **Save**
 1. Next, click **Create the first one**.
-  + Use `Bike Shop FAQ` for document name,
-  + `text/csv` for the "Mime Type",
-  + `FAQ` for the "Knowledge type",
-  + Under "Data source" > select `Upload file from computer` to upload `bike-shop-faq.csv`> **Create**.
+    + Use `Bike Shop FAQ` for document name,
+    + `text/csv` for the "Mime Type",
+    + `FAQ` for the "Knowledge type",
+    + Under "Data source" > select `Upload file from computer` to upload `bike-shop-faq.csv`> **Create**.
 1. In the response section > click **Add Response**. In text response you should see `$Knowledge.Answer[1]` > **Save**.
 1. Try it out! In the simulator on the right enter `do you sell ebikes?`. You should see the exact response from the CSV you just uploaded: "We sell Electric bikes. We also can outfit your existing bike with a retrofit Bionx electric wheel kit. We do not do gas powered conversions."
 
