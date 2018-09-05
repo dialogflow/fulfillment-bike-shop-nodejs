@@ -15,7 +15,7 @@ To create this agent from our template:
 1. Select **Google Calendar API** and then **Enable** to enable the API on your cloud project.
 1. Under the menu icon **☰ > APIs & Services > Credentials > Create Credentials > Service Account Key**.
 1. Under **Create service account key**, select **New Service Account** from the dropdown and enter `bike-shop-calendar` for the name and click **Create**. In the popup, select **Create Without Role**.
-  + JSON file will be downloaded to your computer that you will need in the setup sections below.
+    + JSON file will be downloaded to your computer that you will need in the setup sections below.
 
 #### Bike Shop Calendar Setup
 1. Open the JSON file that was downloaded in the previous section and copy the email address indicated by the `client_email` field
@@ -47,15 +47,20 @@ const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com';
 1. Click **Deploy** at at the bottom of the page.
 
 #### [OPTIONAL] Add Bike Shop FAQ Knowledge Connector
-1. Open Dialogflow and go to **Settings (⚙) > General > Beta features** and click the switch to "Enable beta features and APIs" and then click "Save"
-1. Click on the Knowledge tab in the left column and then "Create Knowledge base" in the top right.  Name the knowledge base `Bike Shop` and click "Save"
-1. Next, click `Create the first one.` in the center of the screen to create your first knowledge document.  Enter in `Bike Shop FAQ` for the document name, `text/csv` for the "Mime Type" and `FAQ` for the "Knowledge type".
-1.  Under "Data source" select `URL` and enter `https://raw.githubusercontent.com/dialogflow/fulfillment-bike-shop-nodejs/master/bike-shop-faq.csv` and then click "Create".
-1. After the knowledge document has been created in the response section click "Add response". In text response you should see `$Knowledge.Answer[1]`. Click "Save".
-1. Try it out! In the simulator on the right enter `do you sell ebikes?`.  You should see the response from the CSV you just uploaded: "We sell Electric bikes. We also can outfit your existing bike with a retrofit Bionx electric wheel kit. We do not do gas powered conversions."
+1. Go to `bike-shop-faq.csv` in this repo >  Raw > Copy the contents to a file on your computer.
+1. In Dialogflow's console go to **Settings (⚙) > General** tab **> Enable Beta Features and APIs > Save**.
+1. Go to the **Knowledge** tab in the left menu > **Create Knowledge Base**.  
+  + Name the knowledge base `Bike Shop` then **Save**
+1. Next, click **Create the first one**.
+  + Use `Bike Shop FAQ` for document name,
+  + `text/csv` for the "Mime Type",
+  + `FAQ` for the "Knowledge type",
+  + Under "Data source" > select `Upload file from computer` to upload `bike-shop-faq.csv`> **Create**.
+1. In the response section > click **Add Response**. In text response you should see `$Knowledge.Answer[1]` > **Save**.
+1. Try it out! In the simulator on the right enter `do you sell ebikes?`. You should see the exact response from the CSV you just uploaded: "We sell Electric bikes. We also can outfit your existing bike with a retrofit Bionx electric wheel kit. We do not do gas powered conversions."
 
 ## Running the sample
-1. In [Dialogflow's console](https://console.dialogflow.com), in the Dialogflow simulator on the right, query your Dialogflow agent with `My bike is broken` and respond to the questions your Dialogflow agent asks.   After getting the required information, an appointment will be added to the "Bike Shop Calendar" calendar.
+1. In [Dialogflow's console](https://console.dialogflow.com), in the simulator on the right, query your Dialogflow agent with `My bike is broken` and respond to the questions your Dialogflow agent asks.   After getting the required information, an appointment will be added to the "Bike Shop Calendar" calendar.
 
 ## How to make contributions?
 Please read and follow the steps in the CONTRIBUTING.md.
