@@ -50,7 +50,7 @@ const calendarId = '6ujc6j6rgfk02cp02vg6h38cs0@group.calendar.google.com';
 1. Go to `bike-shop-faq.csv` in this repo >  Raw > Copy the contents to a file on your computer.
 1. In Dialogflow's console go to **Settings (⚙) > General** tab **> Enable Beta Features and APIs > Save**.
 1. Go to the **Knowledge** tab in the left menu > **Create Knowledge Base**.  
-  + Name the knowledge base `Bike Shop` then **Save**
+    + Name the knowledge base `Bike Shop` then **Save**
 1. Next, click **Create the first one**.
     + Use `Bike Shop FAQ` for document name,
     + `text/csv` for the "Mime Type",
